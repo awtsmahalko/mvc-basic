@@ -14,6 +14,9 @@ class Router
       case 'home':
         $route = ['folder' => 'home', 'file' => 'index.php'];
         break;
+      case 'user':
+        $route = ['folder' => 'user', 'file' => 'index.php'];
+        break;
       default:
         $route = ['folder' => '404', 'file' => 'index.php'];
         break;
