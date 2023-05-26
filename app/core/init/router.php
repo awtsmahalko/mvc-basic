@@ -24,4 +24,9 @@ class Router
     $route['views_file'] = $route['folder'] . "/" . $route['file'];
     return $this->route = $route;
   }
+
+  public static function uri($uri = '')
+  {
+    return ROOT_FOLDER . $uri;
+  }
 }
