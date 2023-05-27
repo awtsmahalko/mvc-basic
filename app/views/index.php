@@ -13,7 +13,8 @@
 
 	<!-- DataTables -->
 	<link type="text/css" rel="stylesheet" href="vendor/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-	<link type="text/css" rel="stylesheet" href="vendor/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+	<link type="text/css" rel="stylesheet"
+		href="vendor/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 	<link type="text/css" rel="stylesheet" href="vendor/plugins/datatables/fixedColumns.dataTables.min.css">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -63,7 +64,8 @@
 		<aside class="main-sidebar sidebar-dark-primary elevation-4">
 			<!-- Brand Logo -->
 			<a href="#" class="brand-link">
-				<img src="vendor/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+				<img src="vendor/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
+					class="brand-image img-circle elevation-3" style="opacity: .8">
 				<span class="brand-text font-weight-light">MVC</span>
 			</a>
 
@@ -81,7 +83,8 @@
 
 				<!-- Sidebar Menu -->
 				<nav class="mt-2">
-					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+					<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+						data-accordion="false">
 						<li class="nav-item">
 							<a href="<?= Router::uri() ?>" class="nav-link">
 								<i class="nav-icon fas fa-tachometer-alt"></i>

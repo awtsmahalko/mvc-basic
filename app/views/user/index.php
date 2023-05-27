@@ -15,10 +15,22 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
-
-    <!-- Main content -->
     <section class="content">
 
+        <div class="row p-2">
+            <div class="col-12" style="display: flex;flex-direction: column;justify-content: center;">
+                <div class="pull-right">
+                    <div class="btn-group" style="float:right;">
+                        <button class="btn btn-outline-secondary btn-sm" type="button" onclick="addUser()">
+                            <span class="fa fa-plus-circle"></span> Add New User</button>
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm" type="button" onclick="removeSales()">
+                            <span class="fa fa-trash"></span> Delete</button>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Default box -->
         <div class="card">
             <div class="card-header">
@@ -29,61 +41,13 @@
                     <thead>
                         <tr>
                             <th width="5px">#</th>
-                            <th width="5px"></th>
                             <th>Fullname</th>
                             <th>Address</th>
                             <th>Position</th>
                             <th>Date Added</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                                Explorer 4.0
-                            </td>
-                            <td>Win 95+</td>
-                            <td> 4</td>
-                            <td>X</td>
-                            <td>X</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                                Explorer 5.0
-                            </td>
-                            <td>Win 95+</td>
-                            <td>5</td>
-                            <td>C</td>
-                            <td>X</td>
-                        </tr>
-                        <tr>
-                            <td>Trident</td>
-                            <td>Internet
-                                Explorer 5.5
-                            </td>
-                            <td>X</td>
-                            <td>Win 95+</td>
-                            <td>5.5</td>
-                            <td>A</td>
-                        </tr>
-                        <tr>
-                            <td>Misc</td>
-                            <td>PSP browser</td>
-                            <td>PSP</td>
-                            <td>X</td>
-                            <td>-</td>
-                            <td>C</td>
-                        </tr>
-                        <tr>
-                            <td>Other browsers</td>
-                            <td>All others</td>
-                            <td>-</td>
-                            <td>X</td>
-                            <td>-</td>
-                            <td>U</td>
-                        </tr>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
             </div>
         </div>
@@ -92,27 +56,35 @@
     </section>
     <!-- /.content -->
 </div>
+<?php require 'modal_user.php' ?>
 <script>
-    $("#example2").DataTable().destroy();
-    $("#example2").DataTable();
     document.addEventListener('DOMContentLoaded', function() {
-        fetchItems();
+        getUsers();
     });
 
-    function fetchItems() {
-        fetch('http://localhost/mvc-basic/app/controller/api.php?uri=get-users')
-            .then(function(response) {
-                if (response.ok) {
-                    return response.json();
-                }
-                throw new Error('Network response was not ok.');
-            })
-            .then(function(data) {
-                console.log(data);
-            })
-            .catch(function(error) {
-                // Handle any errors
-                console.log('Error:', error.message);
-            });
+    function getUsers() {
+        $("#example2").DataTable().destroy();
+        $('#example2').DataTable({
+            "processing": true,
+            "ajax": {
+                "url": 'http://localhost/mvc-basic/app/controller/api.php?uri=get-users',
+            },
+            "columns": [{
+                "data": "count"
+            },
+            {
+                "data": "fullname"
+            },
+            {
+                "data": "address"
+            },
+            {
+                "data": "position"
+            },
+            {
+                "data": "date"
+            }
+            ]
+        });
     }
 </script>
